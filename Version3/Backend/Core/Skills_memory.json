@@ -1,0 +1,103 @@
+{
+  "skills": [
+    {
+      "id": "file_to_chart",
+      "title": "Read File and Generate Chart",
+      "triggers": [
+        "read file and make chart",
+        "chart from file",
+        "plot data from",
+        "visualize file",
+        "graph from file"
+      ],
+      "steps": [
+        "Switch to category 'files' and call read_file on the requested file path",
+        "Extract labels and numeric values as JSON arrays",
+        "Switch to category 'charts' and call generate_chart with the requested chart_type ('bar', 'line', or 'pie'), title, labels_json, and values_json"
+      ],
+      "fix_notes": "Never write a Python matplotlib script; always use generate_chart so the PNG saves to Backend/Core/Temporary.",
+      "uses": 1
+    },
+    {
+      "id": "write_and_verify_file",
+      "title": "Create and Verify Local File",
+      "triggers": [
+        "create file and verify",
+        "write file and read back",
+        "save data to file",
+        "create and check file"
+      ],
+      "steps": [
+        "Switch to category 'files' and call create_and_write_file with filename and content",
+        "Call read_file on the same filename to confirm the saved content"
+      ],
+      "fix_notes": "Always include full path and file extension (e.g., E:\\notes.txt).",
+      "uses": 1
+    },
+    {
+      "id": "run_local_script",
+      "title": "Execute Local Script or Open Generated File",
+      "triggers": [
+        "run script",
+        "execute script",
+        "run python file",
+        "open generated chart",
+        "open html file"
+      ],
+      "steps": [
+        "Switch to category 'files'",
+        "Call run_script passing the exact path in the 'filename' parameter"
+      ],
+      "fix_notes": "Pass only 'filename' to run_script (supports .py, .js, .cpp, .html, .png).",
+      "uses": 1
+    },
+    {
+      "id": "research_and_save_notes",
+      "title": "Search Web and Save Summary Note",
+      "triggers": [
+        "search and save notes",
+        "research and write to file",
+        "google and save summary"
+      ],
+      "steps": [
+        "Switch to category 'basic' and call search_google with the topic query",
+        "Switch to category 'files' and call create_and_write_file to save the structured summary to the target file"
+      ],
+      "fix_notes": "Ask or confirm target filename if not provided.",
+      "uses": 1
+    },
+    {
+      "id": "open_dev_workspace",
+      "title": "Open Coding Workspace",
+      "triggers": [
+        "start coding setup",
+        "open dev workspace",
+        "open coding tools",
+        "prepare workspace"
+      ],
+      "steps": [
+        "Switch to category 'basic'",
+        "Call open_application with app_name='vs code'",
+        "Call open_application with app_name='chrome'"
+      ],
+      "fix_notes": "Use open_application separately for each app.",
+      "uses": 1
+    },
+    {
+      "id": "roblox_afk_session",
+      "title": "Launch Roblox with Anti-AFK",
+      "triggers": [
+        "start roblox afk",
+        "launch roblox and anti afk",
+        "play roblox afk mode"
+      ],
+      "steps": [
+        "Switch to category 'gaming'",
+        "Call launch_roblox (with game_id if provided)",
+        "Call toggle_anti_afk with state='start'"
+      ],
+      "fix_notes": "Keep Roblox window focused after launch.",
+      "uses": 1
+    }
+  ]
+}
